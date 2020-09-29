@@ -1,7 +1,6 @@
-package Aircraft;
+package aircraft;
 
-import Interface.Flyable;
-import Weather.WeatherTower;
+import simulator.WeatherTower;
 
 public class JetPlane extends Aircraft implements Flyable {
 

@@ -1,4 +1,4 @@
-package Aircraft;
+package aircraft;
 
 public class Coordinates {
     

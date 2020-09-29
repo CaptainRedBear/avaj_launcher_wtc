@@ -1,6 +1,6 @@
-package Aircraft;
+package aircraft;
 
-public class Aircraft {
+abstract class Aircraft {
     
     protected long id = 0l;
     protected String name;

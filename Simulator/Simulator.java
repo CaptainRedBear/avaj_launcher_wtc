@@ -1,12 +1,14 @@
-package Simulator;
+package simulator;
 
-import Interface.Flyable;
-import Aircraft.AircraftFactory;
+import aircraft.Flyable;
+import aircraft.AircraftFactory;
 import Exceptions.UsageException;
 import Exceptions.EmptyFileException;
-import Weather.WeatherTower;
 import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.FileNotFoundException;
 
 public class Simulator {
     
