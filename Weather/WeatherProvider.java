@@ -3,6 +3,7 @@ package Weather;
 import java.util.Random;
 
 import Aircraft.Coordinates;
+import java.util.Random;
 
 public class WeatherProvider {
     
