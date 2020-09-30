@@ -6,12 +6,12 @@ public abstract class AircraftFactory {
     public static Flyable newAircraft(String type, String name, int longitude, int latitude, int height) {
         Coordinates coords = new Coordinates(longitude, latitude, height);
 
-        switch (type) {
-            case "Helicopter":
+        switch (type.toLowerCase()) {
+            case "helicopter":
                 return new Helicopter(name, coords);
-            case "Baloon":
+            case "baloon":
                 return new Baloon(name, coords);
-            case "JetPlane":
+            case "jetplane":
                 return new JetPlane(name, coords);
             default:
                 System.out.println((char)27 + "[33mError: Invalid Aircraft Type." + (char)27 + "[0m");

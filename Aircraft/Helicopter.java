@@ -22,35 +22,35 @@ public class Helicopter extends Aircraft implements Flyable {
                     coordinates.getLongitude() + 5, 
                     coordinates.getLatitude(), 
                     coordinates.getHeight());
-                toFile = tmp + "This rain is so depressing...\n";
+                toFile = tmp + "RAIN IS THE BEST WEATHER\n";
                 break;
             case "SUN":
                 coordinates = new Coordinates(
                     coordinates.getLongitude() + 10, 
                     coordinates.getLatitude(), 
                     coordinates.getHeight() + 2);
-                toFile = tmp + "It's so hot!\n";
+                toFile = tmp + "It's crazy sunny!\n";
                 break;
             case "FOG":
                 coordinates = new Coordinates(
                     coordinates.getLongitude(), 
                     coordinates.getLatitude(), 
                     coordinates.getHeight() - 3);
-                toFile = tmp + "I see no ground!\n";
+                toFile = tmp + "Beware the fog monster!\n";
                 break;
             case "SNOW":
                 coordinates = new Coordinates(
                     coordinates.getLongitude(), 
                     coordinates.getLatitude(), 
                     coordinates.getHeight() - 12);
-                toFile = tmp + "Winter is coming!\n";
+                toFile = tmp + "Hopefully the engine doesn't stall in this snow!\n";
                 break;
         }
 
         weatherTower.writeToFile("write", toFile);
 
         if (this.coordinates.getHeight() <= 0) {
-            toFileUnreg = "Tower says: Helicopter#" + this.name + "(" + this.id + ") unregistered from weather tower.\n";
+            toFileUnreg = "Tower says: Helicopter#" + this.name + "(" + this.id + ") unregistered from weather tower. Coordinates are: Latitude (" + coordinates.getLatitude() + "), Longitude (" + coordinates.getLongitude() + ")\n";
             weatherTower.writeToFile("write", toFileUnreg);
             weatherTower.unregister(this);
         }

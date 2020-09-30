@@ -22,35 +22,35 @@ public class JetPlane extends Aircraft implements Flyable {
                     coordinates.getLongitude(), 
                     coordinates.getLatitude() + 5, 
                     coordinates.getHeight());
-                toFile = tmp + "Watch out for lightnings!\n";
+                toFile = tmp + "We're getting wet!\n";
                 break;
             case "SUN":
                 coordinates = new Coordinates(
                     coordinates.getLongitude() + 10, 
                     coordinates.getLatitude(), 
                     coordinates.getHeight() + 2);
-                toFile = tmp + "This sun is getting to my eyes!\n";
+                toFile = tmp + "This sun is bliiinding!\n";
                 break;
             case "FOG":
                 coordinates = new Coordinates(
                     coordinates.getLongitude(), 
                     coordinates.getLatitude() + 1, 
                     coordinates.getHeight());
-                toFile = tmp + "Gamn fog!\n";
+                toFile = tmp + "Foggy weather inbound!\n";
                 break;
             case "SNOW":
                 coordinates = new Coordinates(
                     coordinates.getLongitude(), 
                     coordinates.getLatitude(), 
                     coordinates.getHeight() - 7);
-                toFile = tmp + "We are going to freeze!\n";
+                toFile = tmp + "We can see frost!\n";
                 break;
         }
 
         weatherTower.writeToFile("write", toFile);
 
         if (this.coordinates.getHeight() <= 0) {
-            toFileUnreg = "Tower says: JetPlane#" + this.name + "(" + this.id + ") unregistered from weather tower.\n";
+            toFileUnreg = "Tower says: JetPlane#" + this.name + "(" + this.id + ") unregistered from weather tower. Coordinates are: Latitude (" + coordinates.getLatitude() + "), Longitude (" + coordinates.getLongitude() + ")\n";
             weatherTower.writeToFile("write", toFileUnreg);
             weatherTower.unregister(this);
         }

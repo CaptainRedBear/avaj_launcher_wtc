@@ -23,35 +23,35 @@ public class Baloon extends Aircraft implements Flyable {
                     coordinates.getLongitude(), 
                     coordinates.getLatitude(), 
                     coordinates.getHeight() - 5);
-                toFile = tmp + "It's rain! It messed up my baloon!\n";
+                toFile = tmp + "The rain put out the baloon fire!\n";
                 break;
             case "SUN":
                 coordinates = new Coordinates(
                     coordinates.getLongitude() + 2, 
                     coordinates.getLatitude(), 
                     coordinates.getHeight() + 4);
-                toFile = tmp + "There is some sun, let's enjoy good weather!\n";
+                toFile = tmp + "Baloons and sun require wine and cheese!\n";
                 break;
             case "FOG":
                 coordinates = new Coordinates(
                     coordinates.getLongitude(), 
                     coordinates.getLatitude(), 
                     coordinates.getHeight() - 3);
-                toFile = tmp + "I hate fog, I cannot see anything at all!\n";
+                toFile = tmp + "Fog doesn't bother us since we can't steer in the first place!\n";
                 break;
             case "SNOW":
                 coordinates = new Coordinates(
                     coordinates.getLongitude(), 
                     coordinates.getLatitude(), 
                     coordinates.getHeight() - 15);
-                toFile = tmp + "It's snowing! We should be more careful!\n";
+                toFile = tmp + "It's snowing! Get the hot chocolate!\n";
                 break;
         }
 
         weatherTower.writeToFile("write", toFile);
 
         if (this.coordinates.getHeight() <= 0) {
-            toFileUnreg = "Tower says: Baloon#" + this.name + "(" + this.id + ") unregistered from weather tower.\n";
+            toFileUnreg = "Tower says: Baloon#" + this.name + "(" + this.id + ") unregistered from weather tower. Coordinates are: Latitude (" + coordinates.getLatitude() + "), Longitude (" + coordinates.getLongitude() + ")\n";
             weatherTower.writeToFile("write", toFileUnreg);
             weatherTower.unregister(this);
         }

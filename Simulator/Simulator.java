@@ -1,9 +1,10 @@
 package simulator;
 
 import aircraft.Flyable;
+import exceptions.EmptyFileException;
+import exceptions.UsageException;
 import aircraft.AircraftFactory;
-import Exceptions.UsageException;
-import Exceptions.EmptyFileException;
+
 import java.util.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -23,11 +24,11 @@ public class Simulator {
             String str = reader.readLine();
 
             if (args.length == 0 || args.length > 1) {
-                throw new UsageException((char)27 + "[33mUsage: java Simulator.Simulator [filename]" + (char)27 + "[0m");
+                throw new UsageException("Usage: java Simulator.Simulator [filename]");
             }
 
             if (str == null) {
-                throw new EmptyFileException((char)27 + "[031mError: Empty file." + (char)27 + "[0m");
+                throw new EmptyFileException("Error: Empty file.");
             }
 
             if (str != null) {
@@ -35,7 +36,7 @@ public class Simulator {
                 int sim = Integer.parseInt(str.split(" ")[0]);
 
                 if (sim <= 0) {
-                    System.out.println((char)27 + "[33mError: Simulation counter can't be 0 or less than 0." + (char)27 + "[0m");
+                    System.out.println("Error: Simulation counter can't be 0 or less than 0.");
                     System.exit(1);
                 }
 
@@ -51,7 +52,7 @@ public class Simulator {
                             Integer.parseInt(arg[4]));
                         aircraftList.add(flyable);
                     } else {
-                        System.out.println((char)27 + "[33mError: Each line of the file, except the first one, should look like this: [TYPE NAME LONGITUDE LATITUDE HEIGHT]" + (char)27 + "[0m");
+                        System.out.println("Error: Each line of the file, except the first one, should look like this: [TYPE NAME LONGITUDE LATITUDE HEIGHT]");
                         System.exit(1);
                     }
                 }
@@ -68,9 +69,9 @@ public class Simulator {
                 reader.close();
             }
         } catch (FileNotFoundException exception) {
-            System.out.println((char)27 + "[31mError: File not found " + "<" + args[0] + ">" + (char)27 + "[0m");
+            System.out.println("Error: File not found " + "<" + args[0] + ">");
         } catch (IOException exception) {
-            System.out.println((char)27 + "[31mError: Error while reading file " + args[0] + (char)27 + "[0m");
+            System.out.println("Error: Error while reading file " + args[0]);
         } catch (UsageException exception) {
             System.out.println(exception.getMessage());
             System.exit(1);
@@ -78,7 +79,7 @@ public class Simulator {
             System.out.println(exception.getMessage());
             System.exit(1);
         } catch (Exception exception) {
-            System.out.println((char)27 + "[31mError: Unknown symbols in file " + "<" + exception + ">" + (char)27 + "[0m");
+            System.out.println("Error: Unknown symbols in file " + "<" + exception + "> or no file was given");
         }
 
     }

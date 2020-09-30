@@ -4,7 +4,6 @@ import java.util.Random;
 
 import aircraft.Coordinates;
 
-import java.util.Random;
 
 public class WeatherProvider {
     
@@ -19,7 +18,8 @@ public class WeatherProvider {
     }
 
     public String getCurrentWeather(Coordinates coordinates) {
-        int rand = new Random().nextInt(3);//double check if 3 or 4
+        int rand = new Random().nextInt(4);//double check if 3 or 4
+        rand++;
         rand = coordinates.getHeight()*rand;
         rand = rand%4;
         return weather[rand];
