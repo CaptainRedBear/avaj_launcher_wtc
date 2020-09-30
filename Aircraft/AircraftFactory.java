@@ -14,7 +14,7 @@ public abstract class AircraftFactory {
             case "jetplane":
                 return new JetPlane(name, coords);
             default:
-                System.out.println((char)27 + "[33mError: Invalid Aircraft Type." + (char)27 + "[0m");
+                System.out.println("Error: Invalid Aircraft Type.");
                 System.exit(1);
                 return null;
         }

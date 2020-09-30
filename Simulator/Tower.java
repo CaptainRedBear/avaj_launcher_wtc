@@ -43,7 +43,7 @@ public class Tower {
                         writer.write(text);
                         writer.flush();
                     } catch (Exception e) {
-                        System.out.println((char)27 + "[31mError: Couldn't write to file." + (char)27 + "[0m");
+                        System.out.println("Error: Couldn't write to file.");
                         }
                     break ;
             }
