@@ -50,7 +50,8 @@ public class Helicopter extends Aircraft implements Flyable {
         weatherTower.writeToFile("write", toFile);
 
         if (this.coordinates.getHeight() <= 0) {
-            toFileUnreg = "Tower says: Helicopter#" + this.name + "(" + this.id + ") unregistered from weather tower. Coordinates are: Latitude (" + coordinates.getLatitude() + "), Longitude (" + coordinates.getLongitude() + ")\n";
+            toFileUnreg = "Helicopter#" + this.name + "(" + this.id + ") is landing. Coordinates are: Latitude (" + coordinates.getLatitude() + "), Longitude (" + coordinates.getLongitude() + ")\n";
+            toFileUnreg += "Tower says: Helicopter#" + this.name + "(" + this.id + ") unregistered from weather tower.\n";
             weatherTower.writeToFile("write", toFileUnreg);
             weatherTower.unregister(this);
         }

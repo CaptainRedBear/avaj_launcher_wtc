@@ -51,7 +51,8 @@ public class Baloon extends Aircraft implements Flyable {
         weatherTower.writeToFile("write", toFile);
 
         if (this.coordinates.getHeight() <= 0) {
-            toFileUnreg = "Tower says: Baloon#" + this.name + "(" + this.id + ") unregistered from weather tower. Coordinates are: Latitude (" + coordinates.getLatitude() + "), Longitude (" + coordinates.getLongitude() + ")\n";
+            toFileUnreg = "Baloon#" + this.name + "(" + this.id + ") is landing. Coordinates are: Latitude (" + coordinates.getLatitude() + "), Longitude (" + coordinates.getLongitude() + ")\n";
+            toFileUnreg += "Tower says: Baloon#" + this.name + "(" + this.id + ") unregistered from weather tower.\n";
             weatherTower.writeToFile("write", toFileUnreg);
             weatherTower.unregister(this);
         }
